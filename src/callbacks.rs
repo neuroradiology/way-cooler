@@ -102,10 +102,12 @@ pub extern fn view_move_to_output(current: WlcView,
     trace!("view_move_to_output: {:?}, {:?}, {:?}", current, o1, o2);
 }
 
-pub extern fn view_request_geometry(_view: WlcView, _geometry: &Geometry) {
+pub extern fn view_request_geometry(view: WlcView, geometry: &Geometry) {
+    trace!("View {:?} requested geometry {:#?}", view, geometry);
 }
 
 pub extern fn view_request_state(view: WlcView, state: ViewState, handled: bool) {
+    trace!("View {:?} requested state {:#?}, handled: {:?}", view, state, handled);
     view.set_state(state, handled);
 }
 

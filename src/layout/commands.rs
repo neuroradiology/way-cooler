@@ -135,8 +135,8 @@ impl Tree {
             view.set_geometry(ResizeEdge::empty(), fullscreen);
             return Ok(());
         }
-        tree.add_view(view.clone());
-        tree.normalize_view(view.clone());
+        tree.add_view(view);
+        tree.normalize_view(view);
         tree.layout_active_of(ContainerType::Container);
         Ok(())
     }

@@ -930,11 +930,13 @@ mod tests {
         tree.add_view(WlcView::root());
         assert_eq!(tree.tree.children_of(parent_container).len(), 2);
         assert!(! (old_active_view == tree.active_ix_of(ContainerType::View).unwrap()));
-        tree.remove_view(&WlcView::root());
+        tree.remove_view(&WlcView::root())
+            .expect("Could not remove view");
         assert_eq!(tree.active_ix_of(ContainerType::View).unwrap(), old_active_view);
         assert_eq!(tree.tree.children_of(parent_container).len(), 1);
         for _ in 1..2 {
-            tree.remove_view(&WlcView::root());
+            tree.remove_view(&WlcView::root())
+                .expect("Could not remove view");
         }
     }
 
